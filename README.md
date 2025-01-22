@@ -3,8 +3,7 @@
 > Switch> <br>
 
 prostředí jen pro view
-
-        > Switch# 
+> Switch# 
 
          prostředí pro úpravy <br>
 
