@@ -20,42 +20,42 @@ prostředí jen pro view
 > Switch# 
 prostředí pro úpravy <br>
 
-          Switch> enable <br>
+          Switch> enable
           Switch# 
 
-          přenese nás z view do úprav <br>
+          přenese nás z view do úprav 
 
-                  Switch# disable <br>
+                  Switch# disable
                   Switch>
 
  A jsme zpět ve view <br>
 
 > Switch(config)# pro konfiguraci zařízení <br>
 
-          Switch# configure terminal <br>
+          Switch# configure terminal 
           Switch(config)#
 
 > Switch(config-line)# pro konfigurace console, SSH, Telnetu nebo AUX přístupu <br>
 
-          Switch(config)# line console 0 <br>
+          Switch(config)# line console 0 
           Switch(config-line)#
 
 > Switch(config-if)# pro konfiguraci rozhraní portů nebo routerů <br>
 
-          Switch(config)# interface FastEthernet 0/1 <br>
-          Switch(config-if)# <br>
+          Switch(config)# interface FastEthernet 0/1
+          Switch(config-if)# 
 
           (FastEthernet 0/1 je název portu)
 
 >End vrátíme se zpět do prostředí úprav <br>
 
-          Switch(config-if)# <br>
+          Switch(config-if)# 
           Switch#
 
 
 >Exit vrátíme se o krok zpět <br>
 
-         Switch(config-if)# <br>
+         Switch(config-if)# 
          Switch(config)#
           
 
