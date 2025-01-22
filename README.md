@@ -2,7 +2,7 @@
 ## Základní příkazy
 > Switch> <br>
 
-prostředí jen pro view
+    prostředí jen pro view
 
 > Switch# 
 
@@ -18,7 +18,7 @@ Switch>
 
  A jsme zpět ve view
 
- ![The San Juan Mountains are beautiful!]("")
+ 
 
 
 
