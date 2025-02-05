@@ -1,0 +1,5 @@
+# Kontrolní otázky ke kódování a synchronizaci
+### Vysvětlete pojmy: <br>
+bitová synchronizace <br>
+kódování <br>
+signalizace <br>
