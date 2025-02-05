@@ -116,7 +116,7 @@ Každé z těchto kódování má své výhody a je vhodné pro různé komunika
 
 v příloze (nevím jak to sem dát) 
 
-## Srovnání výhod a nevýhod způsobů kódování: Manchester, NRZ a 4B/5B
+## 5. Srovnání výhod a nevýhod způsobů kódování: Manchester, NRZ a 4B/5B
 
 ### a) **Manchester kódování**
    - **Popis**: Manchester kódování používá přechod na střední úrovni signálu k reprezentaci bitů. Bit "1" je reprezentován přechodem z vysoké na nízkou hodnotu, a bit "0" přechodem z nízké na vysokou hodnotu.
@@ -153,7 +153,7 @@ v příloze (nevím jak to sem dát)
      - **Zvýšení počtu bitů**: Každé 4 bity dat jsou kódovány do 5 bitů, což znamená, že šířka pásma je o něco vyšší než u původního přenosu dat.
      - **Složitost implementace**: Implementace 4B/5B kódování může být složitější než u jednodušších metod, což může zvýšit náklady a složitost systému.
     
-## 5. Co označuje synchronizace?
+## 6. Co označuje synchronizace?
 
 **Synchronizace** v oblasti digitálního přenosu dat označuje proces zajištění, že vysílané a přijímané signály mají stejný časový rámec, což umožňuje správnou interpretaci přenášených informací.
 
