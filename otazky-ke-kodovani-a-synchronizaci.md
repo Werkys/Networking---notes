@@ -4,7 +4,7 @@
 
 **kódování** je proces převodu informace do specifické formy, která je vhodná pro přenos, ukládání nebo zpracování. Používá se v telekomunikacích, počítačových vědách i datové kompresi. <br>
 
-**signalizace** Signalizace je proces přenosu řídicích a stavových informací mezi zařízeními v telekomunikačních a počítačových sítích. Umožňuje navázání, řízení a ukončení komunikace. <br>
+**signalizace** je proces přenosu řídicích a stavových informací mezi zařízeními v telekomunikačních a počítačových sítích. Umožňuje navázání, řízení a ukončení komunikace. <br>
 
 ### podrobnější vysvětlení: 
 
