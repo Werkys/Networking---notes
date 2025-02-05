@@ -114,8 +114,81 @@ Každé z těchto kódování má své výhody a je vhodné pro různé komunika
 ## 4. Zakresli graf průběhu signálu při vysílání posloupnosti: 10011010 při použití:
 ### 4B5B (signalizace NRZ)
 
-![alt text](http://url/to/img.png)
+v příloze (nevím jak to sem dát) 
 
+## Srovnání výhod a nevýhod způsobů kódování: Manchester, NRZ a 4B/5B
+
+### a) **Manchester kódování**
+   - **Popis**: Manchester kódování používá přechod na střední úrovni signálu k reprezentaci bitů. Bit "1" je reprezentován přechodem z vysoké na nízkou hodnotu, a bit "0" přechodem z nízké na vysokou hodnotu.
+
+   - **Výhody**:
+     - **Self-synchronization**: Díky pravidelným přechodům signálu je možné synchronizovat vysílané data bez potřeby externího hodinového signálu.
+     - **Vysoká odolnost vůči šumu**: Díky častým přechodům je kódování robustní proti šumu, což zajišťuje vysokou spolehlivost přenosu.
+     - **Snadná detekce chyb**: Přítomnost přechodů usnadňuje detekci chyb v přenosu dat.
+
+   - **Nevýhody**:
+     - **Nízká účinnost pásma**: Při přenosu signálu je potřeba vyšší šířka pásma, protože každý bit je reprezentován více než jedním přechodem.
+     - **Vyšší energetické nároky**: Vysílání častých přechodů může zvyšovat spotřebu energie, což je nevýhodné v energeticky citlivých aplikacích.
+
+### b) **NRZ (Non-Return-to-Zero) kódování**
+   - **Popis**: V NRZ kódování je úroveň signálu konstantní po celý čas, během kterého je přenášen jeden bit. Bit "1" je reprezentován vysokým napětím a bit "0" nízkým napětím.
+
+   - **Výhody**:
+     - **Vysoká efektivita pásma**: Každý bit je reprezentován jednou změnou signálu, což zajišťuje efektivní využití šířky pásma.
+     - **Nízká spotřeba energie**: NRZ kódování může mít nižší energetické nároky, protože přechody mezi hodnotami se vyskytují méně často než u Manchester kódování.
+     
+   - **Nevýhody**:
+     - **Problémy s synchronizací**: Pokud jsou v datovém přenosu dlouhé sekvence nul nebo jedniček, může být obtížné synchronizovat vysílaný signál, což vede k riziku ztráty synchronizace.
+     - **Nízká odolnost vůči šumu**: Bez častých přechodů může být signál náchylný k chybám a šumu.
+
+### c) **4B/5B kódování**
+   - **Popis**: 4B/5B kódování je technika, kde každé 4 bity dat jsou reprezentovány 5 bity, čímž se zajišťuje minimální počet přechodů a dostatečná synchronizace. Tento způsob kódování je často používán v kombinaci s jinými způsoby kódování, jako je NRZ.
+
+   - **Výhody**:
+     - **Zajištění synchronizace**: 4B/5B kódování přidává redundantní bity pro zajištění správné synchronizace mezi vysílatelem a přijímačem.
+     - **Odolnost vůči chybám**: Tento způsob kódování zajišťuje, že se ve vysílaném signálu nevyskytují dlouhé sekvence nul nebo jedniček, což zvyšuje odolnost vůči šumu.
+     - **Vysoká účinnost pásma**: Při přenosu 4 bity je používáno pouze 5 bitů, což zajišťuje efektivní využití šířky pásma.
+
+   - **Nevýhody**:
+     - **Zvýšení počtu bitů**: Každé 4 bity dat jsou kódovány do 5 bitů, což znamená, že šířka pásma je o něco vyšší než u původního přenosu dat.
+     - **Složitost implementace**: Implementace 4B/5B kódování může být složitější než u jednodušších metod, což může zvýšit náklady a složitost systému.
+    
+## 5. Co označuje synchronizace?
+
+**Synchronizace** v oblasti digitálního přenosu dat označuje proces zajištění, že vysílané a přijímané signály mají stejný časový rámec, což umožňuje správnou interpretaci přenášených informací.
+
+
+## 7. Proč nelze využít pro synchronizaci hodinový signál na samostatném vodiči?
+
+Využití samostatného vodiče pro přenos hodinového signálu pro synchronizaci přenosu dat má několik nevýhod a omezení, zejména v moderních komunikačních systémech:
+
+### a) **Vyšší náklady a složitost**
+   - **Popis**: Použití samostatného vodiče pro hodinový signál znamená potřebu dalšího fyzického vedení (drátu, kabelu), což zvyšuje náklady na hardware a složitost celého systému. V dnešních komunikačních technologiích je preferováno minimalizovat počet vodičů, aby se zjednodušila instalace a snížila cena zařízení.
+   
+### b) **Prostorová náročnost**
+   - **Popis**: Další vodič pro hodinový signál znamená více prostoru na desce plošných spojů a ve kabelových systémech, což není praktické ve vysoce integrovaných systémech, kde je každý vodič a každý centimetr prostoru důležitý.
+
+### c) **Interferencí a šum**
+   - **Popis**: Přenos hodinového signálu na samostatném vodiči může způsobit interferenci nebo šum mezi datovým signálem a hodinovým signálem, což může vést k chybám v přenosu nebo zhoršení kvality signálu.
+
+## Jak jinak můžeme postupovat?
+
+Pro zajištění synchronizace v případě, že není možné použít samostatný hodinový signál, existují alternativní metody:
+
+### a) **Self-synchronization (Vlastní synchronizace)**
+   - **Popis**: Některé kódovací metody, jako je **Manchester kódování** nebo **4B/5B kódování**, jsou navrženy tak, že přechody v signálu poskytují dostatečné informace pro synchronizaci mezi vysílačem a přijímačem, bez potřeby externího hodinového signálu.
+   - **Výhody**: Synchronizace je zajištěna přímo v přenášených datech, což eliminuje potřebu samostatného hodinového signálu.
+   - **Příklad**: V Manchester kódování každý bit je reprezentován změnou stavu signálu, což zajišťuje pravidelnou změnu, která může být použita k synchronizaci.
+
+### b) **Data encoding with timing information (Kódování dat s časovými informacemi)**
+   - **Popis**: Kódování dat s časovými informacemi zahrnuje přenos specifických bitů, které označují začátek a konec určitého časového okna nebo rámce. To umožňuje příjemci určit správné časování, i když přenos neobsahuje samostatný hodinový signál.
+   - **Příklad**: **8B/10B kódování**, které přidává redundantní bity pro zajištění správné synchronizace.
+
+### c) **Clock Recovery (Obnova hodin)**
+   - **Popis**: V některých systémech je možné obnovit hodinový signál z přenášených dat. Tato technika je známá jako "clock recovery" a spočívá v extrakci hodinového signálu z datového proudu, který má dostatek přechodů pro správné určení časování.
+   - **Výhody**: Tato metoda eliminují potřebu externího hodinového signálu a umožňuje přenos dat po jediném vodiči.
+
+Tyto metody jsou často využívány ve vysokorychlostních komunikačních systémech, jako je Ethernet nebo optická vlákna, kde jsou náklady, prostor a složitost problémem.
 
 
 
