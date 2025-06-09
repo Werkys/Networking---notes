@@ -1,105 +1,102 @@
-Text "Princip šifrování -- MiS" se zaměřuje na objasnění a porovnání různých metod šifrování, přičemž zdůrazňuje rozdíl mezi kódováním a šifrováním1.
+# Princip šifrování – MiS
 
-Rozdělení šifrovacích metod2:
+Tento text se zaměřuje na objasnění a porovnání různých metod šifrování a zdůrazňuje rozdíl mezi **kódováním** a **šifrováním¹**.
 
-Symetrické šifrovací metody: Odesilatel i příjemce používají společný šifrovací klíč pro zašifrování i dešifrování zprávy23.
+audio rozbor: https://notebooklm.google.com/notebook/1332e772-f031-4f86-a214-169396b8f1ba/audio
 
-Asymetrické šifrovací metody: Každý účastník je identifikován dvojicí klíčů -- soukromým a veřejným23.
+---
 
-◦
+## 🧩 Rozdělení šifrovacích metod
 
-Soukromý klíč zná pouze vlastník23.
+### 🔐 Symetrické šifrovací metody
+- Odesilatel i příjemce používají **společný klíč** pro šifrování i dešifrování zprávy.
 
-◦
+### 🔑 Asymetrické šifrovací metody
+Každý účastník má **dvojici klíčů**:
+- **Soukromý klíč** – zná pouze vlastník.
+- **Veřejný klíč** – může znát kdokoli.
+- Zpráva šifrovaná veřejným klíčem lze dešifrovat pouze soukromým klíčem (a naopak)²³.
 
-Veřejný klíč smí znát kdokoli23.
+---
 
-◦
+## ⚖️ Porovnání vlastností
 
-Zpráva zašifrovaná veřejným klíčem lze dešifrovat pouze soukromým klíčem a naopak23.
+### ✔️ Symetrické metody
+- Výpočetně **méně náročné³**.
+- **Problém s předáním klíče** na dálku, pokud není možný osobní kontakt³.
+- Klíč by měl být **dlouhý, náhodný a použit jen jednou³**.
 
-Porovnání vlastností23:
+### ✔️ Asymetrické metody
+- Zajišťují **nepopiratelnost odeslání zprávy²**.
+- Řeší bezpečné předání klíče, i přes **nezabezpečenou síť²⁴**.
+- **Jedna klíčová dvojice** umožňuje komunikaci s více partnery².
+- Každý účastník **zodpovídá za svůj soukromý klíč²**.
 
-Symetrické metody:
+---
 
-◦
+## 🛡️ Zabezpečení asymetrickými metodami
 
-Jsou výpočetně méně náročné3.
+- **Proti přečtení zprávy:**  
+  Zpráva je šifrována příjemcovým **veřejným klíčem**, dešifruje ji pouze jeho **soukromý klíč⁵**.
 
-◦
+- **Proti přečtení i podvržení:**  
+  Zpráva je šifrována příjemcovým veřejným klíčem **a** odesilatelovým **soukromým klíčem**.  
+  Příjemce dešifruje pomocí odesilatelova **veřejného klíče** a svého **soukromého klíče⁵**.  
+  Útočník nemůže zprávu zfalšovat, protože **nezná soukromý klíč odesilatele⁵**.
 
-Při komunikaci na dálku vzniká problém s bezpečným předáním klíče, pokud se účastníci nemohou setkat osobně3. Klíč by měl být dostatečně dlouhý, náhodný a použit pouze jednou3.
+---
 
-Asymetrické metody:
+## ⚠️ Možné útoky
 
-◦
+- **Spolehlivá výměna klíčů** (např. osobně) výrazně snižuje riziko.
+- **Útok typu man-in-the-middle:**  
+  Útočník podstrčí vlastní veřejný klíč při výměně přes nezabezpečenou síť.
+- Řešení: **certifikační autority** pro ověřenou výměnu klíčů.
 
-Dokáží zajistit nepopiratelnost odeslání zprávy (autor zprávy nemůže popřít její odeslání)2.
+---
 
-◦
+## 💡 Běžné využití
 
-Ulehčují problém s bezpečným předáním klíče potenciálně nebezpečnou sítí, protože nevadí odposlechnutí veřejného klíče třetí osobou, je jen třeba zabránit podvržení falešného klíče24.
+- **Asymetrické metody** slouží k bezpečnému předání:
+  - Symetrického klíče
+  - Otisku zprávy (hash)
+- Pro **šifrování většího objemu dat** se používají **symetrické metody**, protože jsou rychlejší.
+- **TLS (dříve SSL)** je běžná šifrovací vrstva používaná např. pro protokol **HTTPS**.
 
-◦
+---
 
-Jedna kombinace veřejného a soukromého klíče stačí pro komunikaci s libovolným počtem partnerů2.
+## 🔢 Příklady šifrovacích algoritmů
 
-◦
+### Symetrické algoritmy:
+- **DES (Data Encryption Standard)**  
+  – dnes již nedostatečný (56bitový klíč)⁷.
+- **AES (Advanced Encryption Standard / Rijndael)**  
+  – standard NIST, délky klíče 128, 192 nebo 256 bitů⁷.
+- **Serpent, Twofish** – alternativy k AES⁸.
 
-Každý účastník zodpovídá za svůj soukromý klíč, není zde sdílená zodpovědnost za jeho vyzrazení2.
+### Asymetrické algoritmy:
+- **RSA (Rivest–Shamir–Adleman)**  
+  – základ SSL/TLS, založen na násobení velkých prvočísel⁸.
 
-Zabezpečení asymetrickými metodami56:
+---
 
-Proti přečtení zprávy: Odesilatel šifruje zprávu příjemcovým veřejným klíčem. Taková zpráva lze rozšifrovat pouze příjemcovým soukromým klíčem5.
+## 🕰️ Historické šifry
 
-Proti přečtení zprávy a zároveň proti podvržení falešné zprávy: Odesilatel může zprávu zašifrovat příjemcovým veřejným klíčem a navíc i svým soukromým klíčem. Příjemce pak zprávu dešifruje odesilatelovým veřejným klíčem a svým soukromým klíčem5. Útočník nemůže zprávu zfalšovat, protože by musel znát odesilatelův soukromý klíč5.
+- **Césarova šifra:**  
+  Posun každého písmene o pevný počet míst v abecedě⁹.
 
-Možné útoky:
+- **Vigenèrova šifra (1556)**, **Šifra Playfair (1854)**⁹.
 
-◦
+- **Vernamova šifra (1917):**  
+  Klíč stejně dlouhý jako zpráva, dokonale náhodný.  
+  **Neprolomitelná** při správném použití (dle Shannona, 1949)⁹.
 
-Pokud jsou veřejné klíče vyměněny spolehlivou cestou (např. osobně), je útok velmi obtížný. Zbývá hledat chyby v šifrovacích programech nebo útok hrubou silou6.
+- **Enigma (1918):**  
+  Prolomena ve 30. letech, klíčová ve 2. světové válce.  
+  Na jejím prolomení se podílel **Alan Turing¹⁰**.
 
-◦
+---
 
-Problematická je výměna veřejných klíčů přes nezabezpečenou síť, kde může útočník provést útok man-in-the-middle podsunutím vlastního veřejného klíče6.
-
-◦
-
-V praxi se k předávání klíčů používají certifikační autority6.
-
-Běžné využití4:
-
-Asymetrické metody se obvykle využívají pro bezpečné předání symetrického šifrovacího klíče nebo otisku zprávy4.
-
-Šifrování většího objemu dat se následně provádí symetrickými šifrovacími metodami, protože jsou výpočetně efektivnější4.
-
-TLS (dříve SSL) je vrstva pro šifrovanou komunikaci, typicky používaná pro šifrovaný přenos dat protokolu HTTP (https://...)4.
-
-Příklady šifrovacích algoritmů78:
-
-Symetrické:
-
-◦
-
-DES (Data Encryption Standard) -- dnes již nedostatečné kvůli krátkému klíči (56 bitů)7.
-
-◦
-
-AES (Advanced Encryption Standard, též Rijndael) -- přijatý americkým NIST jako standard, délky klíče 128, 192 nebo 256 bitů7. Zmiňovány jsou také Serpent a Twofish8.
-
-Asymetrické:
-
-◦
-
-RSA (Rivest, Shamir, Adleman) -- základ protokolu SSL, matematický princip je založen na násobení velkých prvočísel8.
-
-Historické šifry910:
-
-Césarova šifra: Posun každého písmena zprávy o zadaný počet v abecedě9.
-
-Vigenèrova šifra (1556) a Šifra Playfair (1854)9.
-
-Vernamova šifra (1917): Podobný princip jako Césarova šifra, ale každé písmeno se posune o jiný počet znaků (klíč je stejně dlouhý jako zpráva a dokonale náhodný). Je neprolomitelná, pokud jsou dodržena pravidla, což dokázal Shannon v roce 1949. Problémem je však předání klíče9.
-
-Enigma (1918): Originální verze prolomena ve 30. letech 20. století. Prolomení pokročilejší verze pomohlo vítězství ve 2. světové válce a na vývoji výpočetních strojů pro prolomení se podílel Alan Turing10.
+### 📚 Poznámky
+¹ Rozdíl mezi kódováním a šifrováním  
+²–¹⁰ Odkazy na zdroje dle originální dokumentace
