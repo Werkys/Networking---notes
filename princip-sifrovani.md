@@ -2,7 +2,7 @@
 
 Tento text se zaměřuje na objasnění a porovnání různých metod šifrování a zdůrazňuje rozdíl mezi **kódováním** a **šifrováním¹**.
 
-audio rozbor: https://notebooklm.google.com/notebook/1332e772-f031-4f86-a214-169396b8f1ba/audio
+audio rozbor: [principsifrovani.notebooklm]([https://notebooklm.google.com/notebook/da582efa-3fe9-4fd2-8339-bef62f4eacfc/audio](https://notebooklm.google.com/notebook/1332e772-f031-4f86-a214-169396b8f1ba/audio))
 
 ---
 
